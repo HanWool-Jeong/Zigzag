@@ -2,11 +2,14 @@
 #include "Arrow.h"
 #include "PlatformFuncs.h"
 #include "Timers.h"
+#include "ScoreBoards.h"
 
 extern MakePlatformTimerPtr platformTimer;
 extern StartButtonPtr startButton;
 extern SpeedupTimerPtr speedupTimer;
 extern ChangeDirectionButtonPtr changeButton;
+extern ScoreBoardPtr clickNumScore;
+extern SurviveBoardPtr surviveTimeScore;
 
 
 /************************************** ¹öÆ° *******************************************/
@@ -43,6 +46,8 @@ bool ChangeDirectionButton::onMouse(int x, int y, MouseAction action)
 		arrow->setDirection(DIRECTION::LEFT);
 		arrow->setImage("images/left_arrow.png");
 	}
+	clickNumScore->setScore(clickNumScore->getScore() + 1);
+	clickNumScore->showScore();
 	return true;
 }
 
@@ -63,6 +68,7 @@ bool StartButton::onMouse(int x, int y, MouseAction action)
 {
 	platformTimer->start();
 	speedupTimer->start();
+	surviveTimeScore->timerStart();
 	this->hide();
 	return true;
 }

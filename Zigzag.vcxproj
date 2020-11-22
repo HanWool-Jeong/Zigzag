@@ -144,6 +144,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlatformFuncs.cpp" />
     <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="ScoreBorads.cpp" />
     <ClCompile Include="Timers.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="Buttons.h" />
     <ClInclude Include="PlatformFuncs.h" />
     <ClInclude Include="Platform.h" />
+    <ClInclude Include="ScoreBoards.h" />
     <ClInclude Include="Timers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

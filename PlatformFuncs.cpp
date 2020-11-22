@@ -1,12 +1,16 @@
 #include "PlatformFuncs.h"
 #include "Arrow.h"
 #include "Timers.h"
+#include "ScoreBoards.h"
 
 extern PlatformPtr platforms[13];
 extern ScenePtr scene;
 extern ArrowPtr arrow;
 extern MakePlatformTimerPtr platformTimer;
 extern SpeedupTimerPtr speedupTimer;
+extern ScoreBoardPtr clickNumScore;
+extern SurviveBoardPtr surviveTimeScore;
+extern SpeedMeterPtr speedMeter;
 
 void attachPlatform(PlatformPtr& elem, const PlatformPtr& prev)
 {
@@ -67,4 +71,14 @@ void reInitGame()
 	platformTimer->set(TIMER_CONST::INIT_SPEED);
 	speedupTimer->set(TIMER_CONST::INIT_SPEED_UPDATE_TIME);
 	speedupTimer->setIterNumZero();
+
+	clickNumScore->setScore(0);
+	clickNumScore->resetScoreLabel();
+
+	surviveTimeScore->setScore(0);
+	surviveTimeScore->resetScoreLabel();
+
+	speedMeter->resetScoreLabel();
+	speedMeter->setScore(1);
+	speedMeter->showScore();
 }
