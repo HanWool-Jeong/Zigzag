@@ -17,9 +17,9 @@ extern SurviveBoardPtr surviveTimeScore;
 extern HighscoreBoardPtr highscore;
 extern SpeedMeterPtr speedMeter;
 
-const float TIMER_CONST::INIT_SPEED				= 1.0f;
+const float TIMER_CONST::INIT_SPEED				= 0.8f;
 const float TIMER_CONST::INIT_SPEED_UPDATE_TIME	= 2.0f;
-const int	TIMER_CONST::NUM_OF_UPDATE			= 45;
+const int	TIMER_CONST::NUM_OF_UPDATE			= 35;
 const float TIMER_CONST::UPDATE_SIZE			= 0.02f;
 
 
