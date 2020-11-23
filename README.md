@@ -6,6 +6,8 @@
 
 이 프로젝트는 [방탈 라이브러리](https://github.com/bosornd/bangtal.cpp)를 이용하여 작성되었습니다.
 
+게임 소개 동영상: https://www.youtube.com/watch?v=baJU2umcFqo
+
 ## 스크린샷
 ### 시작화면
 ![image](https://user-images.githubusercontent.com/67956068/99930625-132c9d00-2d95-11eb-9aae-b5fdfaf5a42e.png)
