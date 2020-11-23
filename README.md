@@ -4,6 +4,8 @@
 지그재그로 움직이며 플랫폼을 밟아 살아남는 게임입니다.<br>
 버튼을 클릭하여 화살표 방향을 바꾸세요.
 
+이 프로젝트는 [방탈 라이브러리](https://github.com/bosornd/bangtal.cpp)를 이용하여 작성되었습니다.
+
 ## 스크린샷
 ### 시작화면
 ![image](https://user-images.githubusercontent.com/67956068/99930625-132c9d00-2d95-11eb-9aae-b5fdfaf5a42e.png)
