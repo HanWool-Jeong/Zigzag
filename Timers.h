@@ -39,7 +39,6 @@ protected:
 	SpeedupTimer(const Second& second);
 
 private:
-	int iterNum;
 
 public:
 	void setIterNumZero();

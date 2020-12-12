@@ -19,7 +19,6 @@ extern SpeedMeterPtr speedMeter;
 
 const float TIMER_CONST::INIT_SPEED				= 0.8f;
 const float TIMER_CONST::INIT_SPEED_UPDATE_TIME	= 2.0f;
-const int	TIMER_CONST::NUM_OF_UPDATE			= 35;
 const float TIMER_CONST::UPDATE_SIZE			= 0.02f;
 
 
@@ -83,16 +82,26 @@ SpeedupTimerPtr SpeedupTimer::create(const Second& second)
 	return timer;
 }
 
-SpeedupTimer::SpeedupTimer(const Second& second) : Timer(second), iterNum(0)
+SpeedupTimer::SpeedupTimer(const Second& second) : Timer(second)
 {
 	onTimerCallback = [&](TimerPtr t)->bool {
-		platformTimer->speed -= TIMER_CONST::UPDATE_SIZE;
-		iterNum++;
+		if (platformTimer->speed > 0.6f) {
+			platformTimer->speed -= TIMER_CONST::UPDATE_SIZE * 2;
+		}
+		else if (platformTimer->speed > 0.4f) {
+			platformTimer->speed -= TIMER_CONST::UPDATE_SIZE;
+		}
+		else if (platformTimer->speed > 0.2f) {
+			platformTimer->speed -= TIMER_CONST::UPDATE_SIZE / 2;
+		}
+		else if (platformTimer->speed > 0.1f) {
+			platformTimer->speed -= TIMER_CONST::UPDATE_SIZE / 4;
+		}
 
 		speedMeter->setScore(speedMeter->getScore() + 1);
 		speedMeter->showScore();
 
-		if (iterNum < TIMER_CONST::NUM_OF_UPDATE) {
+		if (platformTimer->speed > 0.1f) {
 			t->set(second);
 			t->start();
 		}
@@ -102,7 +111,6 @@ SpeedupTimer::SpeedupTimer(const Second& second) : Timer(second), iterNum(0)
 
 void SpeedupTimer::setIterNumZero()
 {
-	iterNum = 0;
 	platformTimer->speed = TIMER_CONST::INIT_SPEED;
 }
 /*************************************************************************/
