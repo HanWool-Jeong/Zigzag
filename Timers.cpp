@@ -101,8 +101,16 @@ SpeedupTimer::SpeedupTimer(const Second& second) : Timer(second)
 		speedMeter->setScore(speedMeter->getScore() + 1);
 		speedMeter->showScore();
 
-		if (platformTimer->speed > 0.1f) {
+		if (platformTimer->speed > 0.4f) {
+			t->set(second / 2);
+			t->start();
+		}
+		else if (platformTimer->speed > 0.2f) {
 			t->set(second);
+			t->start();
+		}
+		else if (platformTimer->speed > 0.1f) {
+			t->set(second * 2);
 			t->start();
 		}
 		return true;
